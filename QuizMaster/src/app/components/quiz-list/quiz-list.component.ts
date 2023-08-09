@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../../service/api.service';
+import { Observable } from "rxjs";
+import { Quiz } from "../../model/quiz"
 
 @Component({
   selector: 'app-quiz-list',
@@ -8,21 +10,24 @@ import { ApiService } from './../../service/api.service';
 })
 export class QuizListComponent implements OnInit {
   Quiz: any = [];
+  
   constructor(private apiService: ApiService) { 
     this.readQuiz();
   }
+
   ngOnInit() {}
+
   readQuiz(){
     this.apiService.getQuizzes().subscribe((data) => {
      this.Quiz = data;
-    })    
+    });    
   }
+
   removeQuiz(quiz, index) {
     if(window.confirm('Are you sure?')) {
         this.apiService.deleteQuiz(quiz._id).subscribe((data) => {
           this.Quiz.splice(index, 1);
-        }
-      )    
+        });    
     }
   }
 }

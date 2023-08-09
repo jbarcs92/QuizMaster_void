@@ -16,8 +16,8 @@ app.use(
   }),
 )
 app.use(cors())
-app.use(express.static(path.join(__dirname, 'dist/mean-stack-crud-app')))
-app.use('/', express.static(path.join(__dirname, 'dist/mean-stack-crud-app')))
+app.use(express.static(path.join(__dirname, 'dist/QuizMaster')))
+app.use('/', express.static(path.join(__dirname, 'dist/QuizMaster')))
 app.use('/api', quizRoute)
 // Create port
 const port = process.env.PORT || 4000

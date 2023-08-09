@@ -34,9 +34,7 @@ quizRoute.route('/admin/new').post(async (req, res, next) => {
 });
    
 
-quizRoute
-  .route("/admin", cors(corsOptionsDelegate))
-  .get(async (req, res, next) => {
+quizRoute.route("/admin", cors(corsOptionsDelegate)).get(async (req, res, next) => {
     await Quiz.find()
       .then((result) => {
         res.writeHead(201, { "Content-Type": "application/json" });
@@ -47,7 +45,7 @@ quizRoute
       });
   });
 
-quizRoute.route('/read/:id').get(async (req, res, next) => {
+quizRoute.route('/admin/read/:id').get(async (req, res, next) => {
     await Quiz.findById(req.params.id, req.body)
     .then((result) => {
       res.json({

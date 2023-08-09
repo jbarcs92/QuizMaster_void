@@ -15,16 +15,17 @@ export class ApiService {
   constructor(private http: HttpClient) {}
   
   createQuiz(data): Observable<any> {
-    let url = `${this.baseUri}/create`;
+    let url = `${this.baseUri}/admin/new`;
     return this.http.post(url, data).pipe(catchError(this.errorMgmt));
   }
  
   getQuizzes() {
+    let url = `${this.baseUri}/admin`;
     return this.http.get(`${this.baseUri}`);
   }
   
   getQuiz(id): Observable<any> {
-    let url = `${this.baseUri}/read/${id}`;
+    let url = `${this.baseUri}/admin/read/${id}`;
     return this.http.get(url, { headers: this.headers }).pipe(
       map((res: Response) => {
         return res || {};
@@ -34,14 +35,14 @@ export class ApiService {
   }
   
   updateQuiz(id, data): Observable<any> {
-    let url = `${this.baseUri}/update/${id}`;
+    let url = `${this.baseUri}/admin/edit/${id}`;
     return this.http
       .put(url, data, { headers: this.headers })
       .pipe(catchError(this.errorMgmt));
   }
   
   deleteQuiz(id): Observable<any> {
-    let url = `${this.baseUri}/delete/${id}`;
+    let url = `${this.baseUri}/admin/delete/${id}`;
     return this.http
       .delete(url, { headers: this.headers })
       .pipe(catchError(this.errorMgmt));
