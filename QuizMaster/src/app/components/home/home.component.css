@@ -1,0 +1,21 @@
+.titleText {
+    text-align: center;
+    margin-top: 3vmin;
+}
+
+.container {
+    margin-top: 3vmin;
+    margin-left: 35vmin;
+}
+
+.card {
+    width: 50vmin;
+}
+
+.card-img-top {
+    height: 30vmin;
+}
+
+.card-body > h4 {
+    text-decoration: underline;
+}
