@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from './../../service/api.service';
-import { Observable } from "rxjs";
-import { Quiz } from "../../model/quiz"
 
 @Component({
   selector: 'app-quiz-list',

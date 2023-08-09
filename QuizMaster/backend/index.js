@@ -3,6 +3,7 @@ const path = require('path')
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+var methodOverride = require('method-override');
 require('dotenv').config();
 require('./config/database');
 
@@ -19,6 +20,7 @@ app.use(cors())
 app.use(express.static(path.join(__dirname, 'dist/QuizMaster')))
 app.use('/', express.static(path.join(__dirname, 'dist/QuizMaster')))
 app.use('/api', quizRoute)
+app.use(methodOverride('_method'));
 // Create port
 const port = process.env.PORT || 4000
 const server = app.listen(port, () => {
